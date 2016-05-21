@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" lang="ru" content="COK travel">
+    <meta name="description" content="Hot tours! Journey around the world!">
+    <meta name="keywords" content="Hot tours! Journey around the world!">
+    <title>COK travel. Hot tours. Journey around the world</title>
+    <link rel="canonical" href="http://travelingua.com.ua/">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/index-mob.css">
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="scripts/index.js"></script>
+    <script src="scripts/tour__scroll-up.js"></script>
+    <script src="scripts/tour__tour-request.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="http://tolomuco.xyz/examples/tr-ag/mobile/" 
+            title="to the main page">
+                <img src="img/logo_cok.png" width="48px" height="48px"
+                alt="COK-travel logo">
+            </a>
+        </div>
+        <a href="http://tolomuco.xyz/examples/tr-ag/mobile/contacts.html" 
+        class="phones" title="contacts">
+            <div><div class="mobo-mts"></div>(050)613-31-92</div>
+            <div><div class="mobo-kyivstar"></div>(098)761-98-55</div>
+            <div><div class="mobo-life"></div>(073)475-64-56</div>
+            <div>Kiev, Pavlovskaya str. 29, office 6</div>                
+        </a>
+        <label for="menu-chbx" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    
+    
+    <input id="menu-chbx" type="checkbox" class="hidden">
+    <label for="menu-chbx" class="menu-wrapper hidden">
+        <ul class="menu">
+            <li>
+                <a href="http://tolomuco.xyz/examples/tr-ag/mobile/contacts.html">
+                    <div class="icon  contacts"></div>
+                    About/Contacts
+                </a>
+            </li>
+            
+            <li>
+                <label for="tour-request">
+                    <div class="icon  callback"></div>
+                    Callback request
+                </label>
+            </li>
+            
+            <li>
+                <div class="menu-inactive">
+                    <div class="icon  filter"></div>
+                    Filters:
+                </div>
+            </li>
+            
+            <li>
+                <label for="countries-chbx" id="btn-countries">
+                    <div class="icon  country"></div>
+                    Select a country
+                    <div class="icon  arrow"></div>
+                </label>
+            </li>
+            
+            <li>
+                <div class="all" data-type="filter">
+                    <input type='radio' name="types" id='all-tour-chbx' 
+                    class='hidden' checked>
+                    <div class="icon switch"></div>
+                    Show all tours
+                </div>
+            </li>
+            
+            <li>
+                <div class="hotest" data-type="filter">
+                    <input type='radio' name="types" id='hotest-tour-chbx' 
+                    class='hidden'>
+                    <div class="icon switch"></div>
+                    Hotest tours
+                </div>
+            </li>
+            
+            <li>
+                <div class="hot" data-type="filter">
+                    <input type='radio' name="types" id='hot-tour-chbx' 
+                    class='hidden'>
+                    <div class="icon switch"></div>
+                    Hot tours
+                </div>
+            </li>
+            
+            <li>
+                <div class="premium" data-type="filter">
+                    <input type='radio' name="types" id='premium-tour-chbx' 
+                    class='hidden'>
+                    <div class="icon switch"></div>
+                    Premium tours
+                </div>
+            </li>
+            
+            <li>
+                <div class="extrim" data-type="filter">
+                    <input type='radio' name="types" id='extrim-tour-chbx' 
+                    class='hidden'>
+                    <div class="icon switch"></div>
+                    Early booking
+                </div>
+            </li>
+        </ul>
+    </label>
+    
+    
+    <input id="countries-chbx" type="checkbox" class="hidden">
+    <section class="select-country hidden">
+        <label class="req-close" for="countries-chbx">×</label>
+        <ul> 
+            <li id="all-countries">
+                <input type="radio" name="countries" id="all-country-chbx" 
+                class="hidden" checked>
+                <img src="img/countries/all.png" alt="Все страны" 
+                title="All countries">
+                <span>All countries</span>
+            </li>
+        </ul>
+        <hr>
+        <ul id="countries-list" class="countries-list"></ul>
+    </section>
+
+
+
+
+
+    <div class="main">
+        <main>
+            <div></div>
+            
+            
+            <div class="gasket"></div>
+            
+
+            <div id="scrollup">
+                <img src="img/scroll-up.png" title="Scroll up" 
+                alt="Scroll up" width="40px">
+            </div>
+        </main>
+
+
+
+
+
+        <footer>
+            <div class="copyright">
+                Copyright © 2014 - <script type="text/javascript">var mdate = new Date(); document.write(mdate.getFullYear());</script> 
+                <a href="http://tolomuco.xyz/examples/tr-ag/">COK-travel</a> 
+                All Rights Reserved
+            </div>
+            
+            <div class="developer">
+                Developed - <a href="http://tolomuco.xyz">Tolomuco.xyz</a>
+            </div>
+        </footer>
+    </div>
+    
+    
+    
+    
+    
+    <section>
+        <input id="tour-request" type="checkbox" class="hidden">
+        <form id="request-form" class="request-form  hidden" 
+        onsubmit="return false" 
+        action="http://travelingua.com.ua/tour.php?id=<?php echo $tour_id ?>">
+            <label class="req-close" for="tour-request">×</label>
+            
+            <div class="request-greeting">
+                Send request for callback
+            </div>
+            
+            
+            <label title="Required">
+                Name<span class="attention--strong">*</span>
+                <input type="text" name="client-name" required
+                pattern="^[А-Яа-яЁёA-Za-z\s]+$" maxlength="64">
+            </label>
+            
+            <label title="Required">
+                Phone<span class="attention--strong">*</span>
+                <input type="tel" name="client-phone" required
+                pattern="^[0-9\s\(\)\+\-]+$" maxlength="20">
+            </label>
+            
+            <label for="rq-mail">
+                E-mail
+                <input type="email" maxlength="64"
+                name="client-email">
+            </label>
+            
+            <label for="rq-text">
+                Short comment
+                <textarea maxlength="1000" name="client-comment"></textarea>
+            </label>
+            
+            <div>
+                <label class="rq-button" for="tour-request">
+                    Cancel
+                </label>
+                <button class="rq-button" type="submit">Send</button>
+            </div>
+        </form>
+        
+        <input id="tour-answer" type="checkbox" class="hidden">
+        <div class="tour-answer">
+            <p></p>
+            <label class="rq-button" for="tour-answer">Close</label>
+        </div>
+    </section>
+</body>
+</html>

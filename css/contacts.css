@@ -1,0 +1,222 @@
+/*------------------------------------*\
+    #SECTION-TOUR
+    Stylesheets for contacts.html
+\*------------------------------------*/
+/**
+ * 
+ * #SECTION-TOTAL
+ *
+ * #SECTION-HEADER
+ *
+ * #SECTION-MAIN
+ *
+ * #SECTION-FOOTER
+ *
+ */
+
+/*------------------------------------*\
+    #SECTION-TOTAL
+\*------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Helvetica, 'Open Sans', Arial, sans-serif; 
+}
+
+body {
+    position: relative;
+}
+
+/* HTML5 compatibility */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, nav, section {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a img {
+    border: none;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #SECTION-HEADER
+\*------------------------------------*/
+
+/* mobile operators*/
+[class*=mobo-] {
+    display: inline;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align:middle;
+    margin-top:-3px;
+    margin-right:3px;
+    background-size: 12px;    
+    width:12px;
+    height:12px;
+}
+
+/*МТС*/
+.mobo-mts{
+background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVQ4T5WTPaoCMRSFv0EsLLQdGXQDgo3TuAIRBBFB0dLWn1LQFShY+tNaKoKIhSBuwMrKwg2IYquFhUgecd5DhswE3i1PTr6c3OQaIpUSXK8QCPCver/BsjCEaQpuN3VvKAS5nKNvNvB8qp5oFEPEYoLz2b1oWTCdQibj6Lsd1Gpwubh98bgHIByGxQKyWbd5u4VyGR6Pr+4JaDZhOPRuR6sFo5EGEInAfg+JhDfgdIJ0Gu53Z11JkM/Deq1/jELh61EAvR50OnpAvw/drk+C2QwqFT1gPodq1QewXEKxqAesVl+PcoXxGOp1PWAygUbDJ4FskDxBVzLhn0dJEAw6n0iCvEq+UKkEr5dPAimbJgwGTjMlUJbcIJvXbuOam08Cv2GybUgmHcDxCIeDmukzTLatjrMQ3lcwjK/+O84/7haN12qsvLYAAAAASUVORK5CYII=);
+}
+
+/*Київстар*/
+.mobo-kyivstar{
+background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABiElEQVQ4T93Tu2vUURDF8c/EGB9RFCGVhbGzUBujgmARFBULjU0KUXYTwcYmrTYGwUqIWoqP3U0ZkIAvSCVaRhBFAiIBg2In+CiUhOjI/lwfm3X/AW955/C9M+fMDe3OeHZLM9Ir5TjQThZtAZXsFV7jk3Ks/68BlbyIjbit25TBWCjmvZlrLTOHWeXY/duDa7lOlyPCUdwP1ZxHV0PwQZj0zajheGsi12ChgI5nn3RWOoyVDf10qOQh4QwOYnlRSFcNxUiT89V8jL2Nu8+4I1z6E+ON3KDTMfT7bsxwPG0CVHKg0fY9qz0wGF/r9fZ70HZBmgv/BtRyvw5zTsZsIa/lLovmnYrnS7mtgJ+tTuKFcmw3kat88RGL0g5D8fJvSDPgVvboMIMe4bpSnJYZaqbRhyc22aM/Fn9BmgHVrL88gDc6bXMi6m5TyS3CM6zAeeW40AqoZv3HTRUhhn1K8XBJCiPC5WKU0KsU75pTqORO4RGuKMe5lhBGs8Nmdwsfumx1PN7XNT8A9O2ARzxjn8gAAAAASUVORK5CYII=);
+}
+
+/*Life*/
+.mobo-life{
+background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACHklEQVQ4T4WTTUgUYRzGf//ddWY3N1fqsBsR4jU7BGoGhhCxUklHO1QsUXioiKBLhwIrJCgJQiLsgw6KmXQJgk6eqktRSGAWZBHYoUPizuzK7O58vDGzG644W//LDPO+87zP+3zIcib7AyUp6kahEAQiAhUbbBcSev2W6rsoQ5Yz/QUguR7AX1PgeGwaHsLNFyndnkQ2ghRlOd2/gtC6BiDg/wwos0ji4gniI2cw9uRQX5cgrq1tVeRDAED5tD2fgUOkfTupuSeURiewrj9EUnVkwwCUVSZ+7ijaoV7s9wtYV8dJvXmMKlcws2cRrQlEqixCAfIFkhPX0Aez2B8WMPaeYvOzm8QOdGHuPoYyVyEWbQxAxSG6s53IjjTe7zz2qzmSDy6j5wYwunN4336C3tQYQHQdZRSC+6toNHg237+CfvwgZt8QzvwioteEDL2CCKqwirge6FpgZ/PUCNrAPsze07ifvwffwzXw7RPQjvQRSW/FefsJ+908qdePkLYMZlcOtWL+QwPPCxRu/fiUSHoL1tg01q1JWhef48x9oXD4QpV+zYSNLgQBEuLnB4m2baM8MwvJBC3TN1gdHqc0Ovn/HAT2Fi1wXbAdki/uoO3vJN9zErX0C/wc/J1GSQxASiVinR20zN7DujuDdWkMaVlXmVqQQsoUHFC2ifV0EOveRXnq5foArXEoSlidg/Valf1oS3Oiqrzfj/oRZfwBDnEAnKeY1jgAAAAASUVORK5CYII=);
+}
+
+
+header {
+    height: 50px;
+    padding: 5px 10px 0;
+    border-bottom: 1px solid #cccccc;
+    background-color: rgba(255,255,255,0.8);
+    overflow: hidden;
+    z-index: 100;
+}
+
+    .logo {
+        float: left;
+        width: 105px;
+    }
+
+    
+    .phones {
+        float: left;
+        width: 102px;
+        color: #404040;
+    }
+    
+        .phones>div {
+            float: left;
+            font-size: 0.7em;
+            line-height: 1.45em;
+        }
+        
+        .phones>div:first-child {
+            margin-right: 7px;
+        }
+        
+        .phones>div:last-child {
+            color: #808080;
+        }
+    
+    
+    .hamburger {
+        display: block;
+        float: right;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background: url("../img/go-back.png") no-repeat center center;
+        background-size: 50px 50px;
+    }  
+
+
+
+@media only screen and (min-width: 441px) {
+    .phones {
+        width: 200px;
+        margin-left: 20px;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #SECTION-MAIN
+\*------------------------------------*/
+
+main {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
+
+    main>section>div {
+        color: #565656;
+        font-size: 14px;
+    }
+
+    main>section>div:not(:first-child):not(.icon) {
+        padding-top: 15px;
+        margin-left: 40px;
+    }
+    
+    
+    .icon   {
+        float: left;
+        height: 24px;
+        width: 24px;
+        margin-top: 15px;
+        background: url("../img/sprite-contacts.png") no-repeat left center;
+        background-size: 75px 24px;
+    }
+    
+    .schedule {
+        background-position: -50px 0;
+    }
+    
+    .phones-big {
+        background-position: -24px 0;
+    }
+    
+    .email {
+        background-position: 0 -3px;
+    }
+
+
+iframe {
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #SECTION-FOOTER
+\*------------------------------------*/
+
+
+footer {
+    height: 20px;
+    padding: 18px 10px;
+    background-color: #4d4d4d;
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.5625em;
+}
+
+    footer a {
+        color: #ffffff;
+    }

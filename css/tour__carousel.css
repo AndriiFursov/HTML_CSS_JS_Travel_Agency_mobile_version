@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #SECTION-CAROUSEL*
+    Stylesheets for carousel 
+    in tours full-info files
+\*------------------------------------*/
+ 
+.carousel__wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -5px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+
+    .carousel__frame {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+    
+        .carousel__frame li {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 3px;
+        }
+        
+        .carousel__frame li:not(:first-child) {
+            display: none;
+        }
+
+        
+    .carousel__left, .carousel__right {
+        position: absolute;
+        bottom: 225px;
+        width: 50px;
+        height: 70px;
+        background: rgba(255,255,255,0.3);
+        border: 4px solid rgba(158,179,267,0.4);
+        border-radius: 5px;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+        
+    .carousel__left:hover, .carousel__right:hover {
+            border: 4px solid rgba(158,179,267,1);
+    }
+    
+    .carousel__left {
+        left: 0;
+    }
+
+    .carousel__right {
+        right: 0;
+    }
+    
+    
+    .carousel__controls {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+        .carousel__controls label {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 2px solid rgba(158,179,267,0.5);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .carousel__controls label:hover, 
+        .carousel__controls input:checked+label {
+            background-color: rgba(158,179,267,1);
+        }
+        
+            .carousel__controls input {
+                display: none;
+            }
