@@ -77,10 +77,10 @@ function loadTours () {
                 var i = counter = 0;
                 
                 while (resultArray[i]) {
-                    if (resultArray[i].tourType === tourType||
-                    resultArray[i].engName === country||
-                    (country === "all"&&tourType === "all")) {
-                        if (!resultArray[i].ref&&counter < showNext) {
+                    if (resultArray[i].tourType === tourType || 
+                    resultArray[i].engName === country || 
+                    (country === "all" && tourType === "all")) {
+                        if (!resultArray[i].ref && counter < showNext) {
                             resultArray[i].ref = makeTour (resultArray[i]);
                             counter++;
                         }
@@ -112,9 +112,9 @@ function loadTours () {
                 // countries filter switch off if types filter switch onn
                 document.getElementById('all-country-chbx').checked = true;
                 
-                while (i < resultArray.length&&showNext>0) {
+                while (i < resultArray.length && showNext>0) {
                     if (obj.className !== "all") { 
-                            if (resultArray[i].ref&&
+                            if (resultArray[i].ref && 
                             resultArray[i].tourType === obj.className) {
                             showNext--;
                         }
@@ -142,13 +142,11 @@ function loadTours () {
                 document.getElementById('all-tour-chbx').checked = true;
                 document.getElementById(country + '-country-chbx').checked = true;
                 if (country !== "all") {
-                    while (i < resultArray.length&&showNext>0) {
-                        if (country !== "all") { 
-                                if (resultArray[i].ref&&
-                                resultArray[i].engName === country) {
-                                showNext--;
-                            }
-                        } else (showNext = 0)
+                    while (i < resultArray.length && showNext>0) {
+                        if (resultArray[i].ref && 
+                            resultArray[i].engName === country) {
+                            showNext--;
+                        }
                         i++;
                     }
                     showTours (showNext, "all", country);
@@ -239,7 +237,7 @@ function loadTours () {
                 var docHeight = document.documentElement.scrollHeight,
                     winHeight = document.documentElement.clientHeight,
                     // documentElement.scrollTop incorrect 
-                    // in Safari/Chrome/Operabody
+                    // in Safari/Chrome/Opera
                     scrolled = window.pageYOffset ||     
                     document.documentElement.scrollTop,  
                     showedType = 
