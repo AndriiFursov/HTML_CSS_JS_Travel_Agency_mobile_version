@@ -5,36 +5,31 @@
 /* 
  * Functions:
  *
- * loadTours () - Function to load the list of tours
+ * makeTour () - Function to make the tour (return a reference to 
+ * the maked tour)
  *
- * * makeTour () - Function to make the tour (return a reference to 
- * * the maked tour)
+ * showTours (showNext, tourType, country) - Function to show the 
+ * list of tours 
  *
- * * showTours (showNext, tourType, country) - Function to show the 
- * * list of tours 
+ * setFilter (obj) - Function to handle clicks on "filter" labels
  *
- * * setFilter (obj) - Function to handle clicks on "filter" labels
+ * showCountries () - Function to fill the list of countries
  *
- * * showCountries () - Function to fill the list of countries
+ * selectCountry (country) - Function to filter list of tours and show
+ * only tours in seleced country
  *
- * * selectCountry (country) - Function to filter list of tours and show
- * * only tours in seleced country
- *
- * * stopScroll (flag) - Functiont to forbid scrolling of the list of tours
- *
- * Listeners:
- * 1 - fill list of tours by "showTours()"
+ * stopScroll (flag) - Functiont to forbid scrolling of the list of tours
 */
 
 
-function loadTours () {
+document.addEventListener("DOMContentLoaded", function () { 
 /*
  * Function to load the list of tours
 */
     var xhttp = new XMLHttpRequest();
     
     xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
             var tours   = document.querySelector('main>div'),
                 filters = document.querySelectorAll('[data-type="filter"]'),
                 menuChbx = document.getElementById('menu-chbx'),
@@ -74,23 +69,28 @@ function loadTours () {
             /*
              * Function to show the list of tours
             */
+
+
                 var i = counter = 0;
+                
                 
                 while (resultArray[i]) {
                     if (resultArray[i].tourType === tourType || 
                     resultArray[i].engName === country || 
                     (country === "all" && tourType === "all")) {
+                        //if tour wasn't shown (!resultArray[i].ref) before
                         if (!resultArray[i].ref && counter < showNext) {
                             resultArray[i].ref = makeTour (resultArray[i]);
                             counter++;
                         }
                         
                         if (resultArray[i].ref) {
+                            // if tour was shown before - show its again
                             resultArray[i].ref.style.display = "";
-                            // sort the list of tours by creation date/time
                             tours.appendChild(resultArray[i].ref); 
                         }
                     } else if (resultArray[i].ref) {
+                        // if tour was shown before - hide its
                         resultArray[i].ref.style.display = "none";
                     }
 
@@ -104,21 +104,31 @@ function loadTours () {
              * Function to handle clicks on "filter" labels
             */
                 var showNext = showStep,
-                    i = 0;
+                    i = 0,
+                    len = resultArray.length; 
                     
                     
                 document.getElementById(obj.className + 
                 '-tour-chbx').checked = true;
                 // countries filter switch off if types filter switch onn
                 document.getElementById('all-country-chbx').checked = true;
-                
-                while (i < resultArray.length && showNext>0) {
+
+                /* calculate how many tours for this filter condition was shown 
+                before and subtract this calculated number from total quantity 
+                of tours which have to be shown in this iteration 
+                */
+                while (i < len) {
                     if (obj.className !== "all") { 
                             if (resultArray[i].ref && 
                             resultArray[i].tourType === obj.className) {
-                            showNext--;
+                            // decrement showNext every time, break loop only
+                            // when showNext = 0
+                            if (--showNext === 0) { break };
                         }
-                    } else (showNext = 0)
+                    } else { 
+                        showNext = 0;
+                        break;
+                    }
                     i++;
                 }
                 showTours (showNext, obj.className, "all");
@@ -131,7 +141,8 @@ function loadTours () {
              * seleced country
             */
                 var showNext = showStep,
-                    i = 0;
+                    i = 0,
+                    len = resultArray.length;
                 
                 var icon;
                 
@@ -142,12 +153,13 @@ function loadTours () {
                 document.getElementById('all-tour-chbx').checked = true;
                 document.getElementById(country + '-country-chbx').checked = true;
                 if (country !== "all") {
-                    while (i < resultArray.length && showNext>0) {
+                    for (var i = 0, len = resultArray.length; i < len; i++) {
                         if (resultArray[i].ref && 
                             resultArray[i].engName === country) {
-                            showNext--;
+                            // decrement showNext every time, break loop only
+                            // when showNext = 0
+                            if (--showNext === 0) { break };
                         }
-                        i++;
                     }
                     showTours (showNext, "all", country);
                     
@@ -182,10 +194,10 @@ function loadTours () {
                     xhttp = new XMLHttpRequest();
                     
                     xhttp.onreadystatechange = function() {
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        if (xhttp.readyState === 4 && xhttp.status === 200) {
                             resultArr = JSON.parse(xhttp.responseText);
                             
-                            for (var i=0; i<resultArr.length; i++) {
+                            for (var i = 0; i < resultArr.length; i++) {
                                 countryBox = document.createElement("li"),
                                 countriesList.appendChild(countryBox);
                                 
@@ -276,10 +288,5 @@ function loadTours () {
     };
     xhttp.open("GET", "tools/handler--tours.php", true);
     xhttp.send();
-}
 
-
-document.addEventListener("DOMContentLoaded", function () { 
-    // 1
-    loadTours();
 });
